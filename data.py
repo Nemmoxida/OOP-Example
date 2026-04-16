@@ -10,11 +10,21 @@ class itemDefault:
         print(f"{self.name} has been used, {self.effect} has gone up by {self.effectValue}")
         
 
+class vita(itemDefault):
+    def __init__(self):
+        super().__init__()
+        self.name = "Vita"
+        self.effect = "recovery"
+        self.effectValue = 50
+        self.description = "Recover energy by 50"
+
+    def useItem(self, player):
+        print(f"{player} has been blessed by Vita, recover 50 energy")
 
 # equipment
 class equipmentDefault:
     def __init__(self):
-        self.name = "uquipment name"
+        self.name = "equipment name"
         self.effect = "defense"
         self.effectValue = 10
         self.description = "equipment description"
@@ -28,6 +38,7 @@ class boss:
         self.name = "the dark lord"
         self.hp = 100
         self.level = 10
+        self.defense = 10
 
     def attack(self, value):
         print(f"{self.name} attack for {value}")
@@ -44,6 +55,10 @@ class character(boss):
         self.name = "hero"
         self.hp = 50
         self.level = 1
+        self.atk = 10
+        self.int = 10
+        self.defense = 5
+        self.energy = 100
 
     def attack(self, value):
         print(f"{self.name} bravely attacks for {value}")
