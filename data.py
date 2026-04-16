@@ -7,7 +7,7 @@ class itemDefault:
         self.description = "item description"
 
     def useItem(self):
-        print(f"${self.name} has been used, ${self.effect} has gone up by ${self.effectValue}")
+        print(f"{self.name} has been used, {self.effect} has gone up by {self.effectValue}")
         
 
 
@@ -20,7 +20,7 @@ class equipmentDefault:
         self.description = "equipment description"
 
     def use(self, character):
-        print(f"{self.name} give the ${character} {self.effect}!")
+        print(f"{self.name} give the {character} {self.effect}!")
 
 # character
 class boss:
@@ -30,13 +30,13 @@ class boss:
         self.level = 10
 
     def attack(self, value):
-        print(f"${self.name} attack for ${value}")
+        print(f"{self.name} attack for {value}")
 
     def item(self, item):
-        print(f"${self.name} using ${item.name} to boost ${item.effect} ")
+        print(f"{self.name} using {item.name} to boost {item.effect} ")
 
     def dodge(self):
-        print(f"${self.name} dodge the attack!")
+        print(f"{self.name} dodge the attack!")
 
 class character(boss):
     def __init__(self):
@@ -49,10 +49,10 @@ class character(boss):
         print(f"{self.name} bravely attacks for {value}")
 
     def item(self):
-        print(f"${self.name} buff him self with an item")
+        print(f"{self.name} buff him self with an item")
 
     def dodge(self):
-        print(f"the ${self.name} was getting attack, but luckly he dodged it")
+        print(f"the {self.name} was getting attack, but luckly he dodged it")
 
 
 
