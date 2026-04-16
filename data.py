@@ -8,6 +8,13 @@ class itemDefault:
         
 
 
+# equipment
+class equipmentDefault:
+    def __init__(self):
+        name = "uquipment name"
+        effect = "defense"
+        effectValue = 10
+        description = "equipment description"
 
 # character
 
