@@ -1,10 +1,10 @@
 # item
 class itemDefault:
     def __init__(self):
-        name = "item"
-        effect = "attack"
-        effectValue = 10
-        description = "item description"
+        self.name = "item"
+        self.effect = "attack"
+        self.effectValue = 10
+        self.description = "item description"
 
     def useItem(self):
         print(f"${self.name} has been used, ${self.effect} has gone up by ${self.effectValue}")
@@ -14,10 +14,10 @@ class itemDefault:
 # equipment
 class equipmentDefault:
     def __init__(self):
-        name = "uquipment name"
-        effect = "defense"
-        effectValue = 10
-        description = "equipment description"
+        self.name = "uquipment name"
+        self.effect = "defense"
+        self.effectValue = 10
+        self.description = "equipment description"
 
     def use(self, character):
         print(f"{self.name} give the ${character} {self.effect}!")
@@ -25,9 +25,9 @@ class equipmentDefault:
 # character
 class boss:
     def __init__(self):
-        name = "the dark lord"
-        hp = 100
-        level = 10
+        self.name = "the dark lord"
+        self.hp = 100
+        self.level = 10
 
     def attack(self, value):
         print(f"${self.name} attack for ${value}")
