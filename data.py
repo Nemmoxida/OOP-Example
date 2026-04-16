@@ -5,6 +5,9 @@ class itemDefault:
         effect = "attack"
         effectValue = 10
         description = "item description"
+
+    def useItem(self):
+        print(f"${self.name} has been used, ${self.effect} has gone up by ${self.effectValue}")
         
 
 
@@ -16,13 +19,15 @@ class equipmentDefault:
         effectValue = 10
         description = "equipment description"
 
-# character
+    def use(self, character):
+        print(f"{self.name} give the ${character} {self.effect}!")
 
+# character
 class boss:
     def __init__(self):
         name = "the dark lord"
         hp = 100
-        level = 100
+        level = 10
 
     def attack(self, value):
         print(f"${self.name} attack for ${value}")
@@ -47,4 +52,14 @@ class character(boss):
         print(f"${self.name} buff him self with an item")
 
     def dodge(self):
-        print(f"${self.name} the ${self.name} was getting attack, but luckly he dodged it")
+        print(f"the ${self.name} was getting attack, but luckly he dodged it")
+
+
+
+# import all class to main 
+__all__ = [
+    "itemDefault",
+    "equipmentDefault",
+    "boss",
+    "character"
+]
