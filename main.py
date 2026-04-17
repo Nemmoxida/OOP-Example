@@ -101,7 +101,7 @@ def player_turn(player_obj, enemy_obj):
         if hasattr(chosen_item, "effect") and str(chosen_item.effect).lower() == "attack":
             temporaryDamage
             temporaryDamage += chosen_item.effectValue
-            chosen_item.useItem()
+            chosen_item.useItem(player.name)
         chosen_item.useItem(player.name)
         if hasattr(chosen_item, "effect") and str(chosen_item.effect).lower() == "recovery":
             player.hp += chosen_item.effectValue
@@ -133,13 +133,13 @@ def apply_training_stat(player_obj, training_choice):
     elif training_choice == "2":
         player_obj.defense += 10
         print("Defense training success! Defense +10")
-    elif training_choice == "3":
-        player_obj.int += 5
-        player_obj.atk += 5
-        print("Agility training success! Intelligence +5, Attack +5")
-    elif training_choice == "4":
-        player_obj.level += 10
-        print("Luck training success! Level +10")
+    # elif training_choice == "3":
+    #     player_obj.int += 5
+    #     player_obj.atk += 5
+    #     print("Agility training success! Intelligence +5, Attack +5")
+    # elif training_choice == "4":
+    #     player_obj.level += 10
+    #     print("Luck training success! Level +10")
 
 
 
@@ -152,17 +152,17 @@ def dodge(char):
     char.dodge()
 
 
-dialogWrite("Once upon a time there's a brave hero who wants to protect humankind")
-player.name = input("\nEnter your name : ")
-dialogWrite("\nDad, can i become a hero so that i can protect you, mom, and the entire people?")
-dialogWrite("\nofcourse son. when you grow up to become an adult, you will be the bravest, strongest, and the best hero of all time.")
+# dialogWrite("Once upon a time there's a brave hero who wants to protect humankind")
+# player.name = input("\nEnter your name : ")
+# dialogWrite("\nDad, can i become a hero so that i can protect you, mom, and the entire people?")
+# dialogWrite("\nofcourse son. when you grow up to become an adult, you will be the bravest, strongest, and the best hero of all time.")
 
-dialogWrite("\n\n20 years later...")
-dialogWrite(f"\n{player.name}: Man this dungeon is big, i feel like even if i explore this place for 1000 years it still not close to finish.")
-dialogWrite(f"\n{player.name}: huh... was that just in my head or i see a monster.")
-dialogWrite(f"\n{player.name}: hmmm. must've been the wind.")
-dialogWrite(f"\n{player.name}: well i guess it's time to rest and continue the exploration tomorrow.")
-dialogWrite(f"\n\nOne day later...")
+# dialogWrite("\n\n20 years later...")
+# dialogWrite(f"\n{player.name}: Man this dungeon is big, i feel like even if i explore this place for 1000 years it still not close to finish.")
+# dialogWrite(f"\n{player.name}: huh... was that just in my head or i see a monster.")
+# dialogWrite(f"\n{player.name}: hmmm. must've been the wind.")
+# dialogWrite(f"\n{player.name}: well i guess it's time to rest and continue the exploration tomorrow.")
+# dialogWrite(f"\n\nOne day later...")
 
 
 
@@ -186,6 +186,7 @@ watchful_eyes = watchfulEyes()
 sparkling_soda = sparklingSoda()
 emblem_of_the_greatest = emblemOfTheGreatest()
 
+# list item pool
 item_objects = [
     vita_item,
     infinity_edge,
@@ -200,6 +201,7 @@ item_objects = [
     endless_battle
 ]
 
+# list equipment pool
 equipment_objects = [
     rage_anklet,
     nimble_hammer,
@@ -208,10 +210,10 @@ equipment_objects = [
     emblem_of_the_greatest
 ]
 
-turn = 10
+turn = 0
 day = 1
-itemInventory = []
-equipmentInventory = []
+itemInventory = [vita_item]
+equipmentInventory = [rage_anklet, nimble_hammer]
 
 
 
@@ -219,7 +221,7 @@ equipmentInventory = []
 while player.hp >= 1:
     dialogWrite(f"\nDay {day}", 0.1)
 
-    while turn < 11:
+    while turn < 6:
         # player input
         print("\nChoose Activity")
         print(f"Turn: {turn}/10")
@@ -232,16 +234,14 @@ while player.hp >= 1:
             print("\nChoose what to train")
             print("1. Attack")
             print("2. Defense")
-            print("3. Agility")
-            print("4. Luck")
-            print("5. Go back")
+            print("3. Go back")
             inputTrain = input("\n")
 
-            if inputTrain == "5":
+            if inputTrain == "3":
                 continue
 
             # validate player input
-            if inputTrain not in ["1", "2", "3", "4"]:
+            if inputTrain not in ["1", "2", "3"]:
                 print("Invalid training option.")
                 continue
 

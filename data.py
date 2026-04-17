@@ -8,7 +8,7 @@ class itemDefault:
 
     def useItem(self):
         print(f"{self.name} has been used, {self.effect} has gone up by {self.effectValue}")
-        
+
 
 class vita(itemDefault):
     def __init__(self):
@@ -141,6 +141,9 @@ class endlessBattle(itemDefault):
     def useItem(self, player):
         print(f"{player} used {self.name}, gained attack {self.effectValue}")
 
+
+
+
 # equipment
 class equipmentDefault:
     def __init__(self):
@@ -209,6 +212,7 @@ class boss:
         self.defense = 10
         self.attack = 15
 
+    # method 
     def attack(self, value):
         print(f"{self.name} attack for {value}")
 
@@ -227,6 +231,7 @@ class character(boss):
         self.atk = 10
         self.defense = 5
 
+    # method 
     def attack(self, value):
         print(f"{self.name} bravely attacks for {value}")
 
